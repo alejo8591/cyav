@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<script type="text/javascript">
+	var socket = io.connect('http://127.0.0.1:8585');
+	/*
+	* En conexión con el servidor, pregunta el nombre de usuario
+	*/
+	socket.on('connect', function(){
+		// Llamada a la función en el servidor "adduser" y envia un parametro por el prompt
+		socket.emit('adduser', prompt('Cual es su nombre'));
+	});
+
+	// Siempre que se emita un evento al servidor con el identtificador de función "updatechat" actualiza el body de la aplicación
+
+	socket.on('updatechat', function(username, data){
+		$('#conversation').append('<span>' + username + ':</span>' + data + '<br />');
+	});
+
+	// Siempre que se emita un 'updateusers' al servidor, esto actualiza la lista de nombres de usuario
+	socket.on('updateusers', function(data){
+		$('#users').empty();
+		$.each(data, function(key, value){
+			$('#users').append('<div>' + value + '</div>');
+		});
+	});
+
+	// cuando carga la pagina
+	$(function(){
+		// Cuando el cliente envia "SEND"
+		$('#datasend').click(function(){
+			var message = $('#data').val();
+			$('#data').val('');
+			// llamando el servidor para que ejecute 'sendchat' y le envia los parametros de "data"
+			socket.emit('sendchat', message);
+		});
+		// Cuando el cliente oprime "ENTER"
+		$('#data').keypress(function(e){
+			if(e.which === 13){
+				$(this).blur();
+				$('#datasend').focus().click();
+			}
+		});
+	});
+	</script>
+
+</head>
+<body>
+	<div>
+		<b>USARIOS</b>
+	<div id="users"></div>
+	</div>
+	<div>
+		<div id="conversation"></div>
+		<input id="data" type="text" />
+		<input type="button" id="datasend" value="Enviar" />
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+	<title> Instalando Jquery</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/jquery.mobile-1.4.1.min.css">
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="header">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html#page-one" data-prefetch>Pagina 1</a></li>
+					<li><a href="index.html#page-two" data-prefetch>Pagina 2</a></li>
+					<li><a href="index.html#page-three" data-prefetch>Pagina 3</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="content">
+			<h2>Encuesta</h2>
+			<form>
+				<fieldset data-role="controlgroup">
+					<legend>Seleccione que lenguaje le gusta</legend>
+					<label for="select-language">Seleccionar Favorito(s)</label>
+					<input type="checkbox" name="select-language" id="select-language" checked="">
+					<label for="cpp">C++</label>
+					<input type="checkbox" name="cpp" id="cpp">
+					<label for="java">Java</label>
+					<input type="checkbox" name="java" id="java">
+					<label for="php">PHP</label>
+					<input type="checkbox" name="php" id="php">
+					<label for="csharp">C#</label>
+					<input type="checkbox" name="csharp" id="csharp">
+				</fieldset>
+				<label for="level">Nivel de conocimiento en Lenguajes</label>
+				<input type="range" name="level" id="level" value="50" min="0" max="100" step="5" data-highlight="true">
+				<label for="slider-flip-on-off">Opción Si o No</label>
+				<select name="slider-flip-on-off" id="slider-flip-on-off" data-role="slider" data-mini="true"></select>
+				<label for="date">Fecha de encuesta</label>
+				<input type="date" data-role="date" id="date"/>
+				<label for="name">Nombre del encuestado</label>
+				<input type="text" name="name" id="name" value="Su nombre">
+				<input type="button" value="Listo">
+				<input type="button" value="borrar encuesta">
+			</form>
+		</div>
+		<div data-role="footer">
+		</div>
+	</div>
+	<!-- Scripts JS -->
+	<script type="text/javascript" src="../assets/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../assets/js/jquery.mobile-1.4.1.min.js"></script>
+    <script type="text/javascript" src="js/lab3.js"></script>
+</body>
+</html>  

@@ -1,0 +1,27 @@
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+	<title>Info</title>
+	<link rel="stylesheet" type="text/css" href="../../unidad-3/assets/css/jquery.mobile-1.4.1.min.css">
+</head>
+<body onload="onBodyLoad()">
+	<div data-role="page">
+		<div data-role="header">
+			<a href="#" data-icon="delete" data-position="inline" data-rel="dialog" id="clear">Limpiar</a>
+			<h1>Cosas por Hacer</h1>
+			<a href="todo.html" data-icon="add" data-position="inline" data-rel="dialog">Agregar Nota</a>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-split-icon="minus" id="todo_list"></ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<a href="#" data-icon="star">Avantel App</a>
+		</div>
+	</div>
+	<!-- Scripts JS -->
+	<script type="text/javascript" src="../../unidad-3/assets/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../../unidad-3/assets/js/jquery.mobile-1.4.1.min.js"></script>
+    <script type="text/javascript" src="js/lab4.js"></script>
+</body>
+</html>  

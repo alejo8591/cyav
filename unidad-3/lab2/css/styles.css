@@ -1,0 +1,27 @@
+article[data-columns='3']{
+	width: 400px;
+}
+
+article[data-colors='a']{
+	color: red;
+	font-size: 10em;
+}
+
+article[data-columns='4']{
+	width: 600px;
+}
+
+article[data-colors='b']{
+	color: peru;
+	font-size: 12em;
+}
+
+h1[data-peru='lima']{
+	color:peru;
+	font-size: 25px;
+}
+
+h1[data-peru='cusco']{
+	color: #232323;
+	font-size: 32px;
+}

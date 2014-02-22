@@ -1,0 +1,29 @@
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+	<title>Info</title>
+	<link rel="stylesheet" type="text/css" href="../../unidad-3/assets/css/jquery.mobile-1.4.1.min.css">
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="header" data-position="inline">
+			<h1>Titulo de Pagina</h1>
+		</div>
+		<div data-role="content">
+			<form action="">
+				<label for="textinput1">Cosas por Hacer</label>
+				<input id="textinput1" value="Ingrese el texto..." type="text" />
+				<a href="#" data-role="button" data-rel="back" onClick="save_todo();" data-icon="check">Guardar</a>
+				<a href="index.html" data-icon="delete" data-role="button" data-rel="back" data-transition="fade" id="cancel" data-direction="reverse">Cancelar</a>
+			</form>
+		</div>
+		<div data-role="footer">
+		</div>
+	</div>
+	<!-- Scripts JS -->
+	<script type="text/javascript" src="../../unidad-3/assets/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../../unidad-3/assets/js/jquery.mobile-1.4.1.min.js"></script>
+    <script type="text/javascript" src="js/lab1.js"></script>
+</body>
+</html>  
