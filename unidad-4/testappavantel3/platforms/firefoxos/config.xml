@@ -3,6 +3,9 @@
     <name>HelloCordova</name>
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
+    <feature name="Network">
+        <param name="firefoxos-package" value="Network" />
+    </feature>
     <name>TestAppAvantel3</name>
     <description>
     A sample Apache Cordova application that responds to the deviceready event.
@@ -14,5 +17,12 @@
     <access origin="*" />
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="Notification">
+        <param name="firefoxos-package" value="Notification" />
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="Vibration">
+        <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
 </widget>
