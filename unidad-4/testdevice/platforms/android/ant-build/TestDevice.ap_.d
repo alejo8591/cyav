@@ -16,6 +16,7 @@
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/cordova.js \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/cordova_plugins.js \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/css \
+/Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/device.html \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/img \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/index.html \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/js \

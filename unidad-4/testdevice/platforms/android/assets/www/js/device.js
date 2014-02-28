@@ -1,4 +1,4 @@
-$(document).on('pageinit', function(event){
+$(document).on('pageinit', '#device', function(event){
 	console.log('hola mundo');
     $('#deviceInfo').on('click', function(){
     	$('#deviceProperties').append('<p>' + device.model + '</p>' +
