@@ -21,8 +21,12 @@
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/js \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/plugins \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/css/index.css \
+/Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/css/jquery.mobile-1.4.1.min.css \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/img/logo.png \
+/Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/js/device.js \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/js/index.js \
+/Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/js/jquery-1.11.0.min.js \
+/Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/js/jquery.mobile-1.4.1.min.js \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
 /Users/alejo8591/Documents/cyav/unidad-4/testdevice/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
