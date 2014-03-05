@@ -1,1 +1,1 @@
-{"launch_path":"/index.html","installs_allowed_from":["*"],"version":"0.0.1","name":"TestGeolocation","pkgName":"com.test.geolocation"}
+{"launch_path":"/index.html","installs_allowed_from":["*"],"version":"0.0.1","name":"TestGeolocation","pkgName":"com.test.geolocation", "permissions": {"geolocation": { "description": "Used to position the map to your current position" }}}

@@ -2,8 +2,8 @@ $(document).on('pageinit' ,'#contacts' , function(event){
 	console.log('pageinit contacts events');
 
 	jQuery.fn.reset = function () {
-  		$(this).each (function() { this.reset(); });
-	}
+  			$(this).each (function() { this.reset(); });
+		}
 
 	
 	$('#saveContact').on('click', function(){
@@ -30,7 +30,8 @@ $(document).on('pageinit' ,'#contacts' , function(event){
 		contact.name = name;
 
 		email = $('#email').val();
-		var emails = new ContactField('personal',email , true);
+		var emails = [];
+		emails[0] = new ContactField('personal',email , true);
 
 		contact.emails = emails;
 

@@ -1,5 +1,4 @@
 $(document).on('pageinit', '#geolocation', function(event){
-	var watchID = null;
 	console.log('hola mundo');
 	var onSuccess = function(position) {
 	    $('#geolocationProperties').append('Latitude: ' + position.coords.latitude + '\n' +
@@ -15,7 +14,6 @@ $(document).on('pageinit', '#geolocation', function(event){
 	}
 
     $('#geolocationInfo').on('click', function(){
-    	var options = { timeout: 30000 };
-        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
 });
