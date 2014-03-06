@@ -27,9 +27,14 @@ var sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database("avantelapp.sqlite");
 
 db.serialize(function() {
+    // Create table "user"
     db.run("CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, email text, password text, firstname text, lastname text, phone text)");
     var stmt = db.prepare("INSERT INTO user (email, password, firstname, lastname, phone) VALUES (?, ?, ?, ?, ?)");
     stmt.run("admin@admin.com", "admin", "admin", "server", "1234566775");
+    // Create table "product"
+    db.run("CREATE TABLE IF NOT EXISTS product (id integer primary key autoincrement, name text, type text, amount text)");
+    var stmt = db.prepare("INSERT INTO product (name, type, amount) VALUES (?, ?, ?)");
+    stmt.run("Motorola", "Telefono Móvil", "50");
     stmt.finalize();
 });
 
