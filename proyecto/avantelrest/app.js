@@ -30,8 +30,8 @@ db.serialize(function() {
     // Create table "user"
     db.run("CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, email text, password text, firstname text, lastname text, phone text)");
     var stmt = db.prepare("INSERT INTO user (email, password, firstname, lastname, phone) VALUES (?, ?, ?, ?, ?)");
-    //stmt.run("admin@admin.com", "admin", "admin", "server", "1234566775");
-    Create table "product"
+    stmt.run("admin@admin.com", "admin", "admin", "server", "1234566775");
+    // Create table "product"
     db.run("CREATE TABLE IF NOT EXISTS product (id integer primary key autoincrement, name text, type text, amount text)");
     var stmt = db.prepare("INSERT INTO product (name, type, amount) VALUES (?, ?, ?)");
     stmt.run("Motorola", "Telefono Móvil", "50");
@@ -75,5 +75,7 @@ app.use(function(err, req, res, next) {
 });
 
 routes = require('./routes/api')(app, db);
+
+module.exports.cookie = '86d049d72a63027eb736fe9b7e240e28';
 
 module.exports = app;

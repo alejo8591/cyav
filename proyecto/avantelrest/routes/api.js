@@ -1,5 +1,29 @@
+var code = require('../app');
 module.exports = function(app, db){
 	// --------------------------- API V1 for User model --------------------------------------- //
+
+	loginUser = function(req, res){
+		console.log("POST - login users");
+		db.get("SELECT * FROM user WHERE email = ? AND password = ?", [req.body.email, req.body.password], function(err, rows) {
+				console.log('POST login user with email: ' + req.body.email);
+		        res.set('Access-Control-Allow-Origin', '*');
+		        res.set('Access-Control-Allow-Methods', 'POST');
+		        res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+		        if(rows){
+		        	rows.cookie = code.cookie;
+		        	 res.send(rows);
+		        } else if(err){
+		        	console.log("Login failed due to SQLite error", err);
+            		res.send(400);
+		        } else {
+		        	console.log("Login failed: user not found.");
+		        	var message = '{"error":403}';
+		        	var error = JSON.parse(message);
+            		res.send(error);
+		        }
+		        //closeDb();
+		  });
+	}
 
 	// Find all User and return list
 	findAllUsers = function(req, res){
@@ -31,13 +55,28 @@ module.exports = function(app, db){
    };
    // Create User with all fields
    createUser = function(req, res){
-   			console.log('POST - save Product with data = \n {' + '\n email : ' + req.body.email + '\n password : ' + req.body.password + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
 	        res.set('Access-Control-Allow-Origin', '*');
 	        res.set('Access-Control-Allow-Methods', 'POST');
 	        res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
    			var stmt = db.prepare("INSERT INTO user (email, password, firstname, lastname, phone) VALUES (?, ?, ?, ?, ?)");
-    		stmt.run(req.body.email, req.body.password, req.body.firstname, req.body.lastname, req.body.phone);
-   			res.send('save done');
+    		stmt.run([req.body.email, req.body.password, req.body.firstname, req.body.lastname, req.body.phone], function(err, rows){
+    			if(err){
+    				console.log("Save user failed");
+		        	var message = '{"error":403}';
+		        	var error = JSON.parse(message);
+            		res.send(error);
+    			} else {
+    				db.get("SELECT * FROM user WHERE email = ?", [req.body.email], function(err, rows) {
+    					if (err) {
+    						res.send(err);
+    					} else {
+    						console.log('POST - save Product with data = \n {' + '\n email : ' + req.body.email + '\n password : ' + req.body.password + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
+    						rows.cookie = code.cookie;
+    						res.send(rows);
+    					}
+		  			});
+    			}
+    		});
    }
    // Update User with all fields
    updateUser = function(req, res){
@@ -60,6 +99,8 @@ module.exports = function(app, db){
    			res.send('update done');
    }
 	  //Link routes and functions
+	  // URI for update User
+	  app.post('/api/v1/user/login', loginUser);
 	  // URI for all users
 	  app.get('/api/v1/user/list', findAllUsers);
 	  // URI for search email fiel 
