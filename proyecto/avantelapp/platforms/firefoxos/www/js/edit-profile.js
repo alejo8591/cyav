@@ -1,5 +1,6 @@
 $(document).on('pageinit', '#editProfile', function(event){
 	console.log('Cosnstruyendo DOM para editar Profile');
+	
 	$('input#email').val(localStorage.getItem('email')).attr('disabled','disabled');
 	$('input#firstname').val(localStorage.getItem('firstname'));
 	$('input#lastname').val(localStorage.getItem('lastname'));
