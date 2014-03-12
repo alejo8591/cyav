@@ -70,7 +70,7 @@ module.exports = function(app, db){
     					if (err) {
     						res.send(err);
     					} else {
-    						console.log('POST - save Product with data = \n {' + '\n email : ' + req.body.email + '\n password : ' + req.body.password + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
+    						console.log('POST - save User with data = \n {' + '\n email : ' + req.body.email + '\n password : ' + req.body.password + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
     						rows.cookie = code.cookie;
     						res.send(rows);
     					}
@@ -80,13 +80,27 @@ module.exports = function(app, db){
    }
    // Update User with all fields
    updateUser = function(req, res){
-   			console.log('PUT - update Product with data = \n {' + '\n email : ' + req.body.email + '\n password : ' + req.body.password + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
+   			console.log('POST - update User with data = \n {' + '\n email : ' + req.body.email + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
 	        res.set('Access-Control-Allow-Origin', '*');
-	        res.set('Access-Control-Allow-Methods', 'PUT');
+	        res.set('Access-Control-Allow-Methods', 'POST');
 	        res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
-   			var stmt = db.prepare("UPDATE user SET password = ?, firstname = ?, lastname = ?, phone = ? WHERE email = ?");
-    		stmt.run(req.body.password, req.body.firstname, req.body.lastname, req.body.phone, req.body.email);
-   			res.send('update done');
+   			var stmt = db.prepare("UPDATE user SET firstname = ?, lastname = ?, phone = ? WHERE email = ?");
+    		stmt.run([req.body.firstname, req.body.lastname, req.body.phone, req.body.email], function(err, rows){
+    			if(err){
+    				console.log(err);
+    				res.send(err);
+    			} else{
+    				db.get("SELECT * FROM user WHERE email = ?", [req.body.email], function(err, rows) {
+    					if (err) {
+    						res.send(err);
+    					} else {
+    						console.log('POST - update User with data = \n {' + '\n email : ' + req.body.email + '\n password : ' + req.body.password + '\n firstname : ' + req.body.firstname + '\n lastname : ' + req.body.lastname + '\n phone : ' + req.body.phone + '\n }');
+    						rows.cookie = code.cookie;
+    						res.send(rows);
+    					}
+		  			});
+    			}
+    		});
    }
    // Delete User by email field
    deleteUser = function(req, res){
@@ -108,7 +122,7 @@ module.exports = function(app, db){
 	  // URI for create User
 	  app.post('/api/v1/user/create', createUser);
 	  // URI for update User
-	  app.put('/api/v1/user/update', updateUser);
+	  app.post('/api/v1/user/update', updateUser);
 	  // URI for delete User
 	  app.delete('/api/v1/user/delete', deleteUser);
 

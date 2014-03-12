@@ -10,16 +10,17 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div data-role="page" id="home">
-            <div data-role="header">
-                <a href="#" data-icon="back" data-rel="back" title="Go back">Atras</a>
+        <div data-role="page" id="home" data-theme="a">
+            <div data-role="header" data-position="inline">
+                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
                 <h1>Test App Avantel</h1>
+                <a href="profile.html" data-icon="check">Perfil</a>
             </div>
             <div data-role="content">
                 <a href="products.html" data-role="button">Productos</a>
                 <a href="list-users.html" data-role="button">Usuarios</a>
-                <a href="#" data-role="button" id="lookCookie">ver Cookie</a>
-                <div id="cookie"></div>
+                <a href="#" data-role="button" id="lookCookie">Verificar cookie</a>
+                <div id="setCookie"></div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h2>App</h2>
@@ -29,16 +30,13 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.1.min.js"></script>
-        <script type="text/javascript" src="js/create-user.js"></script>
-        <script type="text/javascript" src="js/profile.js"></script>
-        <script type="text/javascript" src="js/verification-login.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
         <script type="text/javascript">
             app.initialize();
-            $('#lookCookie').on('click', function(){
-                $('#cookie').append(sessionStorage.getItem('cookie'));
-                console.log(sessionStorage.getItem('cookie'));
-            });
         </script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/verification-login.js"></script>
+        <script type="text/javascript" src="js/create-user.js"></script>
+        <script type="text/javascript" src="js/profile.js"></script>
+        <script type="text/javascript" src="js/edit-profile.js"></script>
     </body>
 </html>
