@@ -1,11 +1,16 @@
 $(document).on('pageinit', '#profile', function(event){
-	console.log('Cosnstruyendo DOM para Profile');
-	$('#dataInfo').remove('li');
-	$('#dataInfo').append(
-		'<li><a href="#">' + localStorage.getItem('firstname') + '</a></li>' +
-		'<li><a href="#">' + localStorage.getItem('lastname') + '</a></li>' +
-		'<li><a href="#">' + localStorage.getItem('email') + '</a></li>' +
-		'<li><a href="#">' + localStorage.getItem('phone') + '</a></li>' 
-	);
-		$('#dataInfo').listview('refresh');	
+	console.log('Cosnstruyendo DOM para Profile desde profile');
+	$('#dataInfo').remove('.info');
+
+	console.log($('#dataInfo').children().length);
+	
+	if ($('#dataInfo').children().length === 0) {
+		$('#dataInfo').append(
+			'<li><a href="#" class="info">' + localStorage.getItem('firstname') + '</a></li>' +
+			'<li><a href="#" class="info">' + localStorage.getItem('lastname') + '</a></li>' +
+			'<li><a href="#" class="info">' + localStorage.getItem('email') + '</a></li>' +
+			'<li><a href="#" class="info">' + localStorage.getItem('phone') + '</a></li>' 
+		);
+		$('#dataInfo').listview('refresh');
+	} 
 });

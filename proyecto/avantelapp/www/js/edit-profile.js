@@ -29,10 +29,10 @@ $(document).on('pageinit', '#editProfile', function(event){
 		}
 		console.log(update_data);
 		/*
-		type (default: 'GET')
-		Type: String
-		The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods, 
-		such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
+			type (default: 'GET')
+			Type: String
+			The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods, 
+			such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
 		*/
 		$.ajax({
 			type : "POST",

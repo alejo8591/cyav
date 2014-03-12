@@ -31,15 +31,20 @@ $(document).on('pageinit', '#createUser', function(events){
 				localStorage.setItem('phone', data.phone);
 
 				$(document).on('pageinit', '#profile', function(event){
-					console.log('Cosnstruyendo DOM para Profile');
-					$('#dataInfo').remove('li');
-					$('#dataInfo').append(
-						'<li><a href="#">' + data.firstname + '</a></li>' +
-						'<li><a href="#">' + data.lastname + '</a></li>' +
-						'<li><a href="#">' + data.email + '</a></li>' +
-						'<li><a href="#">' + data.phone + '</a></li>' 
-					);
-					$('#dataInfo').listview('refresh');
+					console.log('Cosnstruyendo DOM para Profile desde create-user');
+					$('#dataInfo').remove('.info');
+
+					console.log($('#dataInfo').children().length);
+
+					if ($('#dataInfo').children().length === 0) {
+						$('#dataInfo').append(
+							'<li><a href="#" class="info">' + data.firstname + '</a></li>' +
+							'<li><a href="#" class="info">' + data.lastname + '</a></li>' +
+							'<li><a href="#" class="info">' + data.email + '</a></li>' +
+							'<li><a href="#" class="info">' + data.phone + '</a></li>' 
+						);
+						$('#dataInfo').listview('refresh');
+					} 
 				});
 				$.mobile.changePage('profile.html');
 			} else {
